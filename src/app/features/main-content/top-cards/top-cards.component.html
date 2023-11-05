@@ -1,0 +1,26 @@
+<div id="top-cards" class="my-5">
+    <div class="row">
+        <div class="col-md-3"  
+            *ngFor="let card of topCardData; index as i">
+            <div [ngClass]="i === 0 ? 'active' : 'not-active'" class="p-3">
+                <div id="value-wrapper" class="d-flex justify-content-between">
+                    <span id="value">
+                        {{card.value}} % 
+                    </span>
+                    <span>
+                        <i class="bi bi-music-note-beamed" *ngIf="i === 0"></i>
+                        <i class="bi bi-pie-chart" *ngIf="i === 1"></i>
+                        <i class="bi bi-download" *ngIf="i === 2"></i>
+                        <i class="bi bi-arrow-repeat" *ngIf="i === 3"></i>
+                    </span>
+                </div>
+                <div class="fs-20">
+                    {{card.header}}
+                    <p class="fs-14">
+                        is simply dummy text of...
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

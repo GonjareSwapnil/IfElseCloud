@@ -1,0 +1,35 @@
+#user-wrapper{
+    overflow: scroll;
+    max-height: 300px;
+    color: #7e7979;
+    #user{
+        padding: 10px;
+        .rounded-image{
+            border-radius: 50%;
+        }
+    }
+}
+
+.primary-btn{
+    background-color: #eee;
+    border-radius: 4px;
+    border: none;
+    &.active{
+        background-color: hsl(230.67deg 65.22% 72.94%);
+        color: #fff;
+    }
+}
+
+#progress-bar-wrapper{
+    height: 20px;
+    width: 120px;
+    #progress-bar{
+        display: block;
+        height: 8px;
+        background-color: hsl(230.67deg 65.22% 72.94%);
+    }
+    #progress-bar-value{
+        font-size: 12px;
+        color: hsl(230.67deg 65.22% 72.94%);
+    }
+}

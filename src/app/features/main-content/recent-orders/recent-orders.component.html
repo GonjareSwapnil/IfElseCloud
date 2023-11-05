@@ -1,0 +1,72 @@
+<div id="recent-orders">
+    <div class="col-md-12">
+        <h1 class="fs-20">
+            Recent Orders
+        </h1>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Customer</th>
+                <th scope="col">Products</th>
+                <th scope="col">Delivery Date</th>
+                <th scope="col">Status</th>
+                <th scope="col">Tracking No#</th>
+                <th scope="col">Shipping</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let order of orderData; index as i">
+                <th scope="row">{{i}}</th>
+                <td>{{order.name}}</td>
+                <td>{{order.product}}</td>
+                <td>{{order.delivery_date | date :'d MMM, y'}}</td>
+                <td>
+                    <span class="status"
+                        [ngClass]="(order.status == 'Paid') ? 'paid' : ((order.status == 'Failed') ? 'failed' : 'pending')">
+                        {{order.status}}
+                    </span>
+                </td>
+                <td>#{{order.tracking_no}}</td>
+                <td>
+                    <span *ngIf="order.shipping">
+                        Yes
+                    </span>
+                    <span *ngIf="!order.shipping">
+                        No
+                    </span>
+                </td>
+                <td>
+                    <i class="bi bi-x-lg" (click)="openModal(order)" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal"></i>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Order Details</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <h4>
+                    Customer Name: {{ selectedOrderDetails?.name }}
+                </h4>
+                <h5>
+                    Product: {{ selectedOrderDetails?.product }}
+                </h5>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>

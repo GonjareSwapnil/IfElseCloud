@@ -1,0 +1,35 @@
+<div id="new-users">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="fs-20">
+                New User Registrations
+            </h1>
+        </div>
+        <div id="user-wrapper">
+            <div class="col-md-12" *ngFor="let user of userData; index as i">
+                <div id="user" class="d-flex justify-content-between">
+                    <div>   
+                        <img src="{{user.picture}}" alt="" class="rounded-image">
+                    </div>
+                    <div>
+                        <p class="fs-16 mb-1">
+                            {{ user.name }}
+                        </p>
+                        <span class="fs-14">
+                            {{ user.country }}
+                        </span>
+                    </div>
+                    <div id="progress-bar-wrapper" class="d-flex justify-content-between">
+                        <span id="progress-bar" [style.width]="user.progress+'%'" class="me-2"></span> 
+                        <span id="progress-bar-value">{{ user.progress }}%</span> 
+                    </div>
+                    <div>
+                        <button [ngClass]="i === 0 ? 'active' : ''" class="primary-btn">
+                            More
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
